@@ -1,0 +1,50 @@
+# DomainEventsSamples
+
+Exchange between bounded context with domain events
+
+
+### Steps to run this example:
+
+. Install libraries
+
+  mvn clean install
+
+. Run RabbitMQ
+
+  docker-compose up -d
+    
+. Run both services DomainEventsPersons and DomainEventsSchool
+
+- ToDo: add to docker scripts
+
+. Create group TEACHER in service DomainEventsPersons
+
+  http post :8084/rest/api/groups role=TEACHER
+
+- ToDo: Domain events published on repository.save(aggregateRoot) just when aggregate is not new?
+
+. Create person in service DomainEventsPersons
+
+  http post :8084/rest/api/persons fullName:='{"family": "Ivanova", "name": "Irina", "secName": "Victorovna"}' user:='{"username": "IvanovaIV"}'
+
+. Get id from reply and assign person to role TEACHER
+
+  http post :8084/rest/persons/a00a9b6b-1a10-44e2-a164-e5d8276a4ca3/assignToRole/TEACHER
+
+. Check whether the teacher should be created in DomainEventsSchool service
+
+  http :8085/rest/api/teachers/a00a9b6b-1a10-44e2-a164-e5d8276a4ca3
+    
+### Thanks:
+* Spring Team https://spring.io[Spring Framework]
+* Eric Evans https://www.amazon.com/Domain-Driven-Design-Tackling-Complexity-Software/dp/0321125215[Domain-Driven Design]
+* Vaughn Vernon https://github.com/VaughnVernon/IDDD_Samples[Implementing Domain-Driven Design samples]
+* Spring Data Team http://projects.spring.io/spring-data/[Spring Data]
+* Oliver Gierke http://static.olivergierke.de/lectures/ddd-and-spring/#ddd.building-blocks.aggregates[Domain-Driven Design and Spring]
+* Oliver Gierke https://spring.io/blog/2017/01/30/what-s-new-in-spring-data-release-ingalls[Domain events implementation in Spring Data]
+* Paul Henke, Andreas Zaschka, Oliver Gierke http://st.inf.tu-dresden.de/SalesPoint[Salespoint Framework]
+* Zoltan Altfatter http://http://zoltanaltfatter.com/2017/06/09/publishing-domain-events-from-aggregate-roots[Publishing domain events from aggregate roots]
+* RabbitMQ Team https://www.rabbitmq.com/getstarted.html[6 RabbitMQ Tutorials]
+* Spring AMQP Team https://github.com/spring-projects/spring-amqp-samples[spring-amqp-samples]
+* Moisés Macero https://thepracticaldeveloper.com/2016/10/23/produce-and-consume-json-messages-with-spring-boot-amqp[Produce and Consume JSON messages with Spring Boot AMQP and RabbitMQ]
+* Jakub Roztocil https://httpie.org[HTTPie – command line HTTP client]

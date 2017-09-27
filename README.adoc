@@ -1,3 +1,5 @@
+# Демонстрация GitHub для Студентов
+
 # DomainEventsSamples
 
 Exchange between bounded context with domain events

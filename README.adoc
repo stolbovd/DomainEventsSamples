@@ -13,7 +13,9 @@ Exchange between bounded context with domain events
 
   docker-compose up -d
     
-. Run both services DomainEventsPersons and DomainEventsSchool
+. Run `configuration-service`
+
+. Run both services `DomainEventsPersons` and `DomainEventsSchool`
 
 - ToDo: add to docker scripts
 

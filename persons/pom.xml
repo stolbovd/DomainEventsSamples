@@ -5,10 +5,9 @@
     <modelVersion>4.0.0</modelVersion>
 	
 	<artifactId>DomainEventsPersons</artifactId>
+	<name>DomainEventsPersons</name>
 	<version>0.2.0</version>
 	<packaging>jar</packaging>
-	
-	<name>Domain Events Persons</name>
 	
 	<parent>
 		<groupId>ru.inkontext</groupId>
@@ -23,7 +22,7 @@
 	<dependencies>
 		<dependency>
 			<groupId>ru.inkontext</groupId>
-			<artifactId>starter</artifactId>
+			<artifactId>starter-service</artifactId>
 			<version>0.2.0</version>
 		</dependency>
 	</dependencies>

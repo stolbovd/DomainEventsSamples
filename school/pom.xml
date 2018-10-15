@@ -5,10 +5,9 @@
     <modelVersion>4.0.0</modelVersion>
 	
 	<artifactId>DomainEventsSchool</artifactId>
+	<name>Domain Events School</name>
 	<version>0.2.0</version>
 	<packaging>jar</packaging>
-	
-	<name>Domain Events School</name>
 	
 	<parent>
 		<groupId>ru.inkontext</groupId>
@@ -23,17 +22,13 @@
 	<dependencies>
 		<dependency>
 			<groupId>ru.inkontext</groupId>
-			<artifactId>starter</artifactId>
+			<artifactId>starter-service</artifactId>
 			<version>0.2.0</version>
 		</dependency>
 		<dependency>
 			<groupId>ru.inkontext</groupId>
 			<artifactId>DomainEventsPersons</artifactId>
 			<version>0.2.0</version>
-		</dependency>
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-data-rest</artifactId>
 		</dependency>
 	</dependencies>
 </project>

@@ -29,7 +29,7 @@ public class AMQPConfig implements RabbitListenerConfigurer {
 
 	@Bean
 	public Binding personsBinding(DirectExchange exchange, Queue personsQueue) {
-		return BindingBuilder.bind(personsQueue).to(exchange).with("pesonsKey");
+		return BindingBuilder.bind(personsQueue).to(exchange).with("personsKey");
 	}
 
 	@Bean

@@ -56,18 +56,18 @@ public class PersonService extends AbstractRepositoryEventListener {
 					log.info("Message in rabbitTemplate.convertAndSend: " + message);
 					return message;
 				});
-		rabbitTemplate.convertAndSend("direct.events", "personsKey", event.getFullName());
+//		rabbitTemplate.convertAndSend("direct.events", "personsKey", event.getFullName());
+	}
+
+	@RabbitListener(queues = "#{personsQueue.name}")
+	public void receive(PersonAssignedToRole event) {
+		log.info("event " + event.getClass() + " received by @RabbitListener " + event);
 	}
 
 //	@RabbitListener(queues = "#{personsQueue.name}")
-//	public void receive(PersonAssignedToRole event) throws InterruptedException {
+//	public void receiveFullName(FullName event) throws InterruptedException {
 //		log.info("event " + event.getClass() + " received by @RabbitListener " + event);
 //	}
-
-	@RabbitListener(queues = "#{personsQueue.name}")
-	public void receiveFullName(FullName event) throws InterruptedException {
-		log.info("event " + event.getClass() + " received by @RabbitListener " + event);
-	}
 
 	@Override
 	public void onAfterCreate(Object entity) {

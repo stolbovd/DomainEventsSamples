@@ -31,11 +31,11 @@ Exchange between bounded context with domain events
 
 . Get id from reply and assign person to role TEACHER
 
-  http post :8084/rest/persons/a00a9b6b-1a10-44e2-a164-e5d8276a4ca3/assignToRole/TEACHER
+  http post :8084/rest/persons/<id>/assignToRole/TEACHER
 
 . Check whether the teacher should be created in DomainEventsSchool service
 
-  http :8085/rest/api/teachers/a00a9b6b-1a10-44e2-a164-e5d8276a4ca3
+  http :8085/rest/api/teachers
     
 ### Thanks:
 * Spring Team https://spring.io[Spring Framework]

@@ -6,7 +6,7 @@
 
 	<groupId>ru.inkontext</groupId>
 	<artifactId>DomainEventsSamples</artifactId>
-    <version>0.2.0</version>
+    <version>0.3.0</version>
 	<packaging>pom</packaging>
 
 	<name>Domain Events Samples</name>
@@ -15,15 +15,15 @@
 	<parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
-		<version>2.0.5.RELEASE</version>
+		<version>2.1.9.RELEASE</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-		<java.version>1.8</java.version>
-		<spring-cloud.version>Finchley.SR1</spring-cloud.version>
+		<java.version>1.11</java.version>
+		<spring-cloud.version>Greenwich.SR3</spring-cloud.version>
 	</properties>
 	
 	<modules>

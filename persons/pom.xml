@@ -6,13 +6,13 @@
 	
 	<artifactId>DomainEventsPersons</artifactId>
 	<name>DomainEventsPersons</name>
-	<version>0.2.0</version>
+	<version>0.3.0</version>
 	<packaging>jar</packaging>
 	
 	<parent>
 		<groupId>ru.inkontext</groupId>
 		<artifactId>DomainEventsSamples</artifactId>
-		<version>0.2.0</version>
+		<version>0.3.0</version>
 	</parent>
 	
 	<properties>
@@ -23,7 +23,7 @@
 		<dependency>
 			<groupId>ru.inkontext</groupId>
 			<artifactId>starter-service</artifactId>
-			<version>0.2.0</version>
+			<version>0.3.0</version>
 		</dependency>
 	</dependencies>
 </project>

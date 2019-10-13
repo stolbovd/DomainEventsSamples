@@ -1,7 +1,6 @@
 package ru.inkontext.persons;
 
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.amqp.rabbit.annotation.RabbitListener;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.event.EventListener;
@@ -30,9 +29,9 @@ public class PersonService extends AbstractRepositoryEventListener {
 
 	@Transactional
 	void assignPersonToRole(PersonId personId, Role role) {
-		Person person = personRepository.findById(personId)
+		Person person = Optional.ofNullable(personRepository.findOne(personId))
 				.orElseThrow(() -> new RuntimeException("person with id " + personId + " not found"));
-		Group group = groupRepository.findById(role)
+		Group group = Optional.ofNullable(groupRepository.findOne(role))
 				.orElse(new Group(role));
 
 		if (!Optional.ofNullable(group.getPersonIds())
@@ -59,13 +58,13 @@ public class PersonService extends AbstractRepositoryEventListener {
 //		rabbitTemplate.convertAndSend("direct.events", "personsKey", event.getFullName());
 	}
 
-	@RabbitListener(queues = "#{personsQueue.name}")
-	public void receive(PersonAssignedToRole event) {
-		log.info("event " + event.getClass() + " received by @RabbitListener " + event);
-	}
+//	@RabbitListener(queues = "#{personsQueue.name}")
+//	public void receive(PersonAssignedToRole event) {
+//		log.info("event " + event.getClass() + " received by @RabbitListener " + event);
+//	}
 
 //	@RabbitListener(queues = "#{personsQueue.name}")
-//	public void receiveFullName(FullName event) throws InterruptedException {
+//	public void receiveFullName(FullName event) {
 //		log.info("event " + event.getClass() + " received by @RabbitListener " + event);
 //	}
 

@@ -3,3 +3,5 @@
 .idea/
 persons/target/
 school/target/
+configuration-service/target/
+starter-service/target/
